@@ -46,10 +46,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "src/**/*.{js,ts}": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }

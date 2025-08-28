@@ -1,0 +1,20 @@
+CREATE TABLE projects (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    title TEXT NOT NULL,
+    slug TEXT UNIQUE NOT NULL,
+    description TEXT,
+    main_image_url TEXT,
+    main_image_alt TEXT,
+    category TEXT,
+    client TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    is_featured BOOLEAN DEFAULT false,
+    sort_order INTEGER DEFAULT 0,
+    seo_title TEXT,
+    seo_description TEXT,
+    seo_keywords TEXT[],
+    status TEXT DEFAULT 'published' CHECK (status IN ('draft',
+    'published',
+    'archived'))
+);

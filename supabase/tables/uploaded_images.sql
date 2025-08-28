@@ -1,0 +1,20 @@
+CREATE TABLE uploaded_images (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    url TEXT NOT NULL,
+    filename TEXT NOT NULL,
+    original_filename TEXT,
+    file_size BIGINT,
+    width INTEGER,
+    height INTEGER,
+    mime_type TEXT,
+    upload_service TEXT NOT NULL,
+    category TEXT DEFAULT 'general',
+    description TEXT,
+    alt_text TEXT,
+    is_active BOOLEAN DEFAULT true,
+    uploaded_by UUID,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text,
+    now()) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text,
+    now()) NOT NULL
+);
